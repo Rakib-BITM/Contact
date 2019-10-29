@@ -34,6 +34,7 @@ public class ContactDetailsActivity extends AppCompatActivity {
     private final int REQUEST_CALL_PHONE_CODE = 123;
     private final int REQUEST_STORAGE_CODE = 456;
     private final int REQUEST_CAMERA_CODE = 999;
+    private String emailaddress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -170,12 +171,9 @@ public class ContactDetailsActivity extends AppCompatActivity {
     }
 
     public void sendEmail(View view) {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-
-        intent.setType("text/html");
-        intent.putExtra(Intent.EXTRA_EMAIL, contact.getEmail());
+        Intent intent = new Intent(Intent.ACTION_VIEW,Uri.parse("mailto:" + contact.getEmail()));
         intent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
         intent.putExtra(Intent.EXTRA_TEXT, "I'm email body.");
-        startActivity(Intent.createChooser(intent, "Send Email"));
+        startActivity(intent);
     }
 }
