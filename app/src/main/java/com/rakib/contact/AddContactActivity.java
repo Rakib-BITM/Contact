@@ -94,6 +94,7 @@ public class AddContactActivity extends AppCompatActivity {
                 ContactRVAdapter rvAdapter = new ContactRVAdapter(this,contacts);
                 rvAdapter.updateList(contacts);
                 startActivity(new Intent(this,MainActivity.class));
+                finish();
             }
 
         }

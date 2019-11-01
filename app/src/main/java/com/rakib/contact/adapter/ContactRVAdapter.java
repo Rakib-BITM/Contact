@@ -47,9 +47,12 @@ public class ContactRVAdapter extends RecyclerView.Adapter<ContactRVAdapter.Cont
 
         String path = contactList.get(position).getPhoto();
 
-        ImageView imageView = holder.photo;
+        if (path!=null){
+            Bitmap bitmap = BitmapFactory.decodeFile(contactList.get(position).getPhoto());
+            holder.photo.setImageBitmap(bitmap);
+        }
 
-        setPic(imageView,path);
+
 
 
         final int pp =  position;
@@ -128,16 +131,6 @@ public class ContactRVAdapter extends RecyclerView.Adapter<ContactRVAdapter.Cont
         dialog.show();
     }
 
-
-    private void setPic(ImageView imageView,String currentPhotoPath) {
-
-        // Get the dimensions of the bitmap
-        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-        bmOptions.inJustDecodeBounds = true;
-
-        Bitmap bitmap = BitmapFactory.decodeFile(currentPhotoPath, bmOptions);
-        imageView.setImageBitmap(bitmap);
-    }
 
 
 }

@@ -14,12 +14,6 @@ public class Contact implements Serializable {
     private String email;
     private String photo;
 
-    public Contact(String name, String number, String email) {
-        this.name = name;
-        this.number = number;
-        this.email = email;
-    }
-    @Ignore
     public Contact(String name, String number, String email, String photo) {
         this.name = name;
         this.number = number;
